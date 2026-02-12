@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>5-сабақ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="header">📘 5-сабақ: Шарттар (if / else)</div>
+
+<div class="container">
+    <div class="card">
+        <p>Шарттар программаға шешім қабылдауға көмектеседі. Олар логикалық тексеру арқылы кодтың қай бөлігі орындалатынын анықтайды.</p>
+
+        <pre>
+age = 17
+
+if age >= 18:
+    print("Кіруге болады")
+else:
+    print("Кіруге болмайды")</pre>
+
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+        <h3>⚖️ 5-сабақтың тапсырмасы:</h3>
+        <p><b>ball = 60</b> деген айнымалы берілген. Егер <b>ball</b> 50-ден көп немесе тең болса, <b>"Өтті"</b> деп, әйтпесе <b>"Өтпеді"</b> деп шығаратын код жазыңыз.</p>
+        
+        <div class="code-editor-container">
+            <textarea class="code-input" id="lesson5-code" placeholder="ball = 60..."></textarea>
+            <button class="run-btn" onclick="checkLesson5()">▶ Кодты тексеру</button>
+        </div>
+
+        <div class="output-area" id="output5">
+            <i>Нәтиже осы жерде шығады...</i>
+        </div>
+        <br>
+        <div class="navigation-btns">
+            <a href="/chat" class="btn">🤖 Сұрақты AI-ға қою</a>
+            <a href="/lesson/6" class="btn">Келесі сабақ ➡</a>
+            <a href="/" class="btn">⬅ Басты бет</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function checkLesson5() {
+        const code = document.getElementById('lesson5-code').value.trim();
+        const output = document.getElementById('output5');
+        
+        // Тексеру шарттары (бос орындарды ескермеу үшін regex немесе қатты тексеру)
+        const hasIf = code.includes('if ball >= 50:') || code.includes('if ball>=50:');
+        const hasElse = code.includes('else:');
+        const hasPrintPass = code.includes('print("Өтті")') || code.includes("print('Өтті')");
+        const hasPrintFail = code.includes('print("Өтпеді")') || code.includes("print('Өтпеді')");
+
+        if (hasIf && hasElse && hasPrintPass && hasPrintFail) {
+            output.innerHTML = "<b>✅ Керемет!</b><br>Нәтиже: Өтті<br><small>Сіз шартты операторларды дұрыс қолдандыңыз!</small>";
+            output.style.color = "#27ae60";
+        } else if (hasIf && !hasElse) {
+            output.innerHTML = "<b>⚠️ Көмек:</b> 'else' бөлімін қосуды ұмытпаңыз (50-ден төмен болған жағдай үшін).";
+            output.style.color = "#f39c12";
+        } else if (code.includes('ball') && !code.includes(':')) {
+            output.innerHTML = "<b>❌ Қате:</b> if және else-ден кейін қос нүктені (:) қоюды және шегініс (indentation) жасауды ұмытпаңыз.";
+            output.style.color = "#e74c3c";
+        } else {
+            output.innerHTML = "<b>❌ Қате:</b> Кодты мысалдағыдай құрылымда жазып көріңіз.";
+            output.style.color = "#e74c3c";
+        }
+    }
+</script>
+
+</body>
+</html>
