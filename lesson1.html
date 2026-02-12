@@ -2,8 +2,9 @@
 <html lang="kk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1-сабақ</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -40,15 +41,14 @@ print(2 + 2)</pre>
         </div>
         <br>
         <div class="navigation-btns">
-            <a href="/chat" class="btn">🤖 Сұрақты AI-ға қою</a>
-            <a href="/lesson/2" class="btn">Келесі сабақ ➡</a>
-            <a href="/" class="btn">⬅ Басты бет</a>
+            <a href="chat.html" class="btn">🤖 Сұрақты AI-ға қою</a>
+            <a href="lesson2.html" class="btn">Келесі сабақ ➡</a>
+            <a href="index.html" class="btn">⬅ Басты бет</a>
         </div>
     </div>
 </div>
 
 <script>
-    // Бұл функция әзірге тек жай эффект үшін (нәтижені имитациялау)
     function runCode() {
         const code = document.querySelector('.code-input').value;
         const output = document.getElementById('output');
